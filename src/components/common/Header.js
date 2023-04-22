@@ -46,7 +46,6 @@ export default function WithSubnavigation() {
         bg={useColorModeValue('white', 'gray.800')} color={useColorModeValue('gray.600', 'white')}
         minH={'50px'} py={{ base: 1 }} px={{ base: 2 }} align={'center'}>
         <Flex
-          flex={{ base: 1, md: 'auto' }}
           ml={{ base: -2 }}
           display={{ base: 'flex', md: 'none' }}>
           <IconButton
@@ -59,17 +58,18 @@ export default function WithSubnavigation() {
           />
         </Flex>
 
-        <Stack flex={{ base: 1, md: 0 }} justify={'flex-start'} direction={'row'} >
+        <Stack display={{base: 'none',md: null, lg: 'flex'}} flex={{ base: 1, md: 0 }} justify={'flex-start'} direction={'row'} >
           <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>about us</Button>
           <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>contact us</Button>
         </Stack>
         <Flex flex={{ base: 1 }} justify={'center'}>
-          <Link href='/store/home'>
+          <Link href='/store/#/home'>
             <img height="100" width="150" alt='logo' src={logo} />
           </Link>
         </Flex>
 
         <Stack
+          display={{base: 'none',md: null, lg: 'flex'}}
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
@@ -281,12 +281,12 @@ const NAV_ITEMS = [
       {
         label: 'Bangles Best Sellers',
         subLabel: 'Bangles Best Sellers',
-        href: '/store/category',
+        href: '/store/#/category',
       },
       {
         label: 'Bangles New',
         subLabel: 'Up-and-coming Designers',
-        href: '/store/category',
+        href: '/store/#/category',
       },
     ],
   },
@@ -296,12 +296,12 @@ const NAV_ITEMS = [
       {
         label: 'Jewelry Best Sellers',
         subLabel: 'Jewelry Best Sellers',
-        href: '/store/category',
+        href: '/store/#/category',
       },
       {
         label: 'Jewelry New',
         subLabel: 'Up-and-coming Designers',
-        href: '/store/category',
+        href: '/store/#/category',
       },
     ],
   },

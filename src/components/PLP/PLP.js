@@ -10,7 +10,7 @@ function PLP() {
             <div className='plp-banner'>
                 <img width={'100%'} alt={'plp-banner'} src='http://via.placeholder.com/1200x300' />
             </div>
-            <Flex>
+            <Flex justifyContent={'center'}>
                 <Grid w={[0, null, '20%']}></Grid>
                 <SimpleGrid width={'auto'} padding={'30px'} columns={[2, null, 4]} >
                     <ProductAddToCart />

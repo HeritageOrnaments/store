@@ -25,7 +25,7 @@ const data = {
 
 function Rating({ rating, numReviews }) {
     return (
-        <Box display={'flex'} alignItems="center" flexDirection={'row'}>
+        <Box display={{base: 'none', sm: 'none', md: 'none', lg: 'flex'}} alignItems="center" flexDirection={'row'}>
             {Array(5)
                 .fill('')
                 .map((_, i) => {
@@ -57,6 +57,7 @@ function ProductAddToCart() {
             <Box
                 bg={useColorModeValue('white', 'gray.800')}
                 maxW="sm"
+                width={{base: '150px',md:'200px', lg:'300px'}}
                 borderWidth="1px"
                 shadow="sm"
                 position="relative">
@@ -69,7 +70,7 @@ function ProductAddToCart() {
                         bg="red.200"
                     />
                 )}
-                <Link href='/store/product' >
+                <Link href='/store/#/product' >
                 <Image
                     src={data.imageURL}
                     link
@@ -77,7 +78,7 @@ function ProductAddToCart() {
                 />
                 </Link>
 
-                <Box p="6">
+                <Box p={{base:'6', sm: '2', md:'4', lg:'6' }}>
                     <Box display="flex" alignItems="baseline">
                         {data.isNew && (
                             <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
@@ -87,7 +88,6 @@ function ProductAddToCart() {
                     </Box>
                     <Flex mt="1" justifyContent="space-between" alignContent="center">
                         <Box
-                            fontSize="2xl"
                             fontWeight="semibold"
                             as="h4"
                             lineHeight="tight"
@@ -99,8 +99,8 @@ function ProductAddToCart() {
                             bg="white"
                             placement={'top'}
                             color={'gray.800'}
-                            fontSize={'1.2em'}>
-                            <chakra.a href={'#'} display={'flex'}>
+                            >
+                            <chakra.a href={'#'} display={{base: 'none', sm: 'none', lg:'flex'}}>
                                 <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
                             </chakra.a>
                         </Tooltip>
@@ -108,9 +108,9 @@ function ProductAddToCart() {
 
                     <Flex justifyContent="space-between" alignContent="center">
                         <Rating rating={data.rating} numReviews={data.numReviews} />
-                        <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
-                            <Box as="span" color={'gray.600'} fontSize="lg">
-                                RS:
+                        <Box  color={useColorModeValue('gray.800', 'white')}>
+                            <Box as="span" color={'gray.600'} >
+                                Rs:
                             </Box>
                             {data.price.toFixed(2)}
                         </Box>

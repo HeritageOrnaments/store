@@ -4,30 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createHashRouter, RouterProvider} from "react-router-dom";
 import PLP from './components/PLP/PLP';
 import PDP from './components/PDP/PDP';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const router = createBrowserRouter([
-  {
-    path: "/store",
-    children: [
+const router = createHashRouter([
       {
-        path: "home",
+        path: "/",
         element: <App />,
       },
       {
-        path: "category",
+        path: "/home",
+        element: <App />,
+      },
+      {
+        path: "/category",
         element: <PLP />,
       },
       {
-        path: "product",
+        path: "/product",
         element: <PDP />,
       },
-    ],
-  },
 ]);
 
 root.render(

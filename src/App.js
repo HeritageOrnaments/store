@@ -16,7 +16,7 @@ function App() {
         <Heading mb={4}>Best Sellers</Heading>
         <Text fontSize='xl'>Checkout with one of Our Best sellers</Text>
       </Box>
-      <Flex>
+      <Flex  justifyContent={'center'}>
         <SimpleGrid padding={'30px'} columns={[2, null, 4]} >
           <ProductAddToCart />
           <ProductAddToCart />

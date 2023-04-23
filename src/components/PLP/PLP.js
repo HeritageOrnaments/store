@@ -15,7 +15,8 @@ const ProductTiles = () => {
                     name: catagorie.products[key].name,
                     description: catagorie.products[key].description,
                     price: catagorie.products[key].price,
-                    Images: catagorie.products[key].Images
+                    Images: catagorie.products[key].Images,
+                    url: '/store/#/product?pid='+key
                 }}/>
             )
         }

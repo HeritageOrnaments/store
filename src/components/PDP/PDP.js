@@ -15,10 +15,16 @@ import {
     ListItem,
 } from '@chakra-ui/react';
 import { MdLocalShipping } from 'react-icons/md';
+import productMgr from '../../primus/managers/productMgr.js';
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
-
 export default function Simple() {
+    const params = new URLSearchParams(window.location.hash.split('?')[1]);
+    var pid = params.get('pid');
+
+    var model = {
+        product: productMgr.getProduct(pid),
+    }
     return (
         <div className='pdp'>
             <Header />
@@ -45,13 +51,13 @@ export default function Simple() {
                                 lineHeight={1.1}
                                 fontWeight={600}
                                 fontSize={{ base: '2xl', sm: '4xl', lg: '5xl' }}>
-                                Wayfarer Classic
+                                {model.product.name}
                             </Heading>
                             <Text
                                 color={useColorModeValue('gray.900', 'gray.400')}
                                 fontWeight={300}
                                 fontSize={'2xl'}>
-                                Rs: 150.00
+                                Rs: {model.product.price}
                             </Text>
                         </Box>
 
@@ -64,18 +70,11 @@ export default function Simple() {
                                 />
                             }>
                             <VStack spacing={{ base: 4, sm: 6 }}>
-                                <Text
-                                    color={useColorModeValue('gray.500', 'gray.400')}
-                                    fontSize={'2xl'}
-                                    fontWeight={'300'}>
-                                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                    diam nonumy eirmod tempor invidunt ut labore
+                                <Text color={useColorModeValue('gray.500', 'gray.400')} fontSize={'2xl'} fontWeight={'300'}>
+                                    {model.product.description}
                                 </Text>
                                 <Text fontSize={'lg'}>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad
-                                    aliquid amet at delectus doloribus dolorum expedita hic, ipsum
-                                    maxime modi nam officiis porro, quae, quisquam quos
-                                    reprehenderit velit? Natus, totam.
+                                    {model.product.description}
                                 </Text>
                             </VStack>
                             <Box>

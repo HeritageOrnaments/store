@@ -47,5 +47,33 @@
                 "description": "lorem ipsum"
             }
         }
+    },
+    "bangles2": {
+        "name": "Bangles 2",
+        "products": {
+            "hob01": {
+                "name": "product 1 with images",
+                "description": "lorem ipsum",
+                "price": 140,
+                "Images": [
+                    "http://via.placeholder.com/500x500",
+                    "http://via.placeholder.com/500x500"
+                ]
+            },
+            "hob02": {
+                "name": "product 2",
+                "description": "lorem ipsum",
+                "price": 142
+            },
+            "hob03": {
+                "name": "product 3",
+                "description": "lorem ipsum",
+                "price": 133
+            },
+            "hob04": {
+                "name": "product 4",
+                "description": "lorem ipsum"
+            }
+        }
     }
 }

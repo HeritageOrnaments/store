@@ -42,7 +42,6 @@ function Rating({ rating, numReviews }) {
 }
 
 function ProductAddToCart({ product }) {
-    console.table(product);
     const data = {
         isNew: true,
         imageURL: product.Images ? product.Images[0] : null || 'http://via.placeholder.com/500x500',
@@ -50,6 +49,7 @@ function ProductAddToCart({ product }) {
         price: product.price || 0,
         rating: product.rating || 1,
         numReviews: product.numReviews || 0,
+        url: product.url
     };
     return (
         <Flex p={4} w="full" alignItems="center" justifyContent="center" data-pid={product.id}>
@@ -69,7 +69,7 @@ function ProductAddToCart({ product }) {
                         bg="red.200"
                     />
                 )}
-                <Link href='/store/#/product' >
+                <Link href={data.url}>
                     <Image
                         src={data.imageURL}
                         link

@@ -2,8 +2,27 @@ import ProductAddToCart from './components/ProductAddToCart.js';
 import { SimpleGrid, Grid, Flex } from '@chakra-ui/react'
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
+import catalogMgr from '../../primus/managers/catalogMgr.js';
 
-function PLP() {
+const ProductTiles = () => {
+    const params = new URLSearchParams(window.location.hash.split('?')[1]);
+    var catagorie = catalogMgr.getCatagorie(params.get('cid')||null);
+    var ProductTiles = [];
+        for (const key in catagorie.products) {
+            ProductTiles.push(
+                <ProductAddToCart product={{
+                    id: key,
+                    name: catagorie.products[key].name,
+                    description: catagorie.products[key].description,
+                    price: catagorie.products[key].price,
+                    Images: catagorie.products[key].Images
+                }}/>
+            )
+        }
+    return ProductTiles;
+}
+
+function PLP(params) {
     return (
         <div className="PLP" >
             <Header />
@@ -13,12 +32,7 @@ function PLP() {
             <Flex justifyContent={'center'}>
                 <Grid w={[0, null, '20%']}></Grid>
                 <SimpleGrid width={'auto'} padding={'30px'} columns={[2, null, 4]} >
-                    <ProductAddToCart />
-                    <ProductAddToCart />
-                    <ProductAddToCart />
-                    <ProductAddToCart />
-                    <ProductAddToCart />
-                    <ProductAddToCart />
+                    <ProductTiles/>
                 </SimpleGrid>
             </Flex>
             <Footer />

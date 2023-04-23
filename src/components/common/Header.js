@@ -1,34 +1,19 @@
-import {
-  Box,
-  Flex,
-  Text,
-  IconButton,
-  Button,
-  Stack,
-  Collapse,
-  Icon,
-  Link,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  useColorModeValue,
-  useDisclosure,
-  chakra,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Center,
-  MenuDivider,
-  Avatar
-} from '@chakra-ui/react';
+import { Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon,
+  Link, Popover, PopoverTrigger, PopoverContent, useColorModeValue,
+  useDisclosure, chakra, Menu, MenuButton, MenuItem, MenuList, Center,
+  MenuDivider, Avatar } from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 import logo from '../../heritageornaments.svg';
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,
-} from '@chakra-ui/icons';
+
+var catalogMgr = require('../../primus/managers/catalogMgr');
+var NAV_ITEMS = [];
+catalogMgr.getCatagories().forEach((cid)=>{
+  var category = catalogMgr.getCatagorie(cid)
+  NAV_ITEMS.push({
+    label: category.name.toString(),
+    href: '/store/#/category?cid='+ cid,
+  },);
+})
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -273,36 +258,3 @@ const MobileNavItem = ({ label, children, href }) => {
     </Stack>
   );
 };
-
-const NAV_ITEMS = [
-  {
-    label: 'Bangles',
-    children: [
-      {
-        label: 'Bangles Best Sellers',
-        subLabel: 'Bangles Best Sellers',
-        href: '/store/#/category',
-      },
-      {
-        label: 'Bangles New',
-        subLabel: 'Up-and-coming Designers',
-        href: '/store/#/category',
-      },
-    ],
-  },
-  {
-    label: 'Jewelry',
-    children: [
-      {
-        label: 'Jewelry Best Sellers',
-        subLabel: 'Jewelry Best Sellers',
-        href: '/store/#/category',
-      },
-      {
-        label: 'Jewelry New',
-        subLabel: 'Up-and-coming Designers',
-        href: '/store/#/category',
-      },
-    ],
-  },
-];

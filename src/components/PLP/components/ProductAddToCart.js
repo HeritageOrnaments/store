@@ -52,11 +52,14 @@ function ProductAddToCart({ product }) {
         url: product.url
     };
     return (
-        <Flex p={4} w="full" alignItems="center" justifyContent="center" data-pid={product.id}>
+        <Flex 
+            p={4} w="full" alignItems="center" justifyContent="center"
+            data-pid={product.id} data-aos="fade-up"
+        >
             <Box
                 bg={useColorModeValue('white', 'gray.800')}
                 maxW="sm"
-                width={{ base: '150px', md: '200px', lg: '300px' }}
+                width={{ base: '15rem', md: '15rem', lg: '300px' }}
                 borderWidth="1px"
                 shadow="sm"
                 position="relative">

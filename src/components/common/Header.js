@@ -1,17 +1,19 @@
-import { Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon,
+import {
+  Box, Flex, Text, IconButton, Button, Stack, Collapse, Icon,
   Link, Popover, PopoverTrigger, PopoverContent, useColorModeValue,
   useDisclosure, chakra, Menu, MenuButton, MenuItem, MenuList, Center,
-  MenuDivider, Avatar } from '@chakra-ui/react';
+  MenuDivider, Avatar
+} from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 import logo from '../../heritageornaments.svg';
 
 var catalogMgr = require('../../primus/managers/catalogMgr');
 var NAV_ITEMS = [];
-catalogMgr.getCatagories().forEach((cid)=>{
+catalogMgr.getCatagories().forEach((cid) => {
   var category = catalogMgr.getCatagorie(cid)
   NAV_ITEMS.push({
     label: category.name.toString(),
-    href: '/store/#/category?cid='+ cid,
+    href: '/store/#/category?cid=' + cid,
   },);
 })
 
@@ -21,7 +23,7 @@ export default function WithSubnavigation() {
   return (
     <Box
       bg={useColorModeValue('white', 'gray.800')} color={useColorModeValue('gray.600', 'white')}
-      align={'center'} minH={'50px'}
+      align={'center'} minH={'50px'} position={'sticky'}
       borderBottom={1} borderStyle={'solid'} borderColor={useColorModeValue('gray.200', 'gray.900')}
     >
       <Flex height={'30px'} alignItems={'center'} justifyContent={'center'} backgroundColor={'black'}>
@@ -30,31 +32,20 @@ export default function WithSubnavigation() {
       <Flex
         bg={useColorModeValue('white', 'gray.800')} color={useColorModeValue('gray.600', 'white')}
         minH={'50px'} py={{ base: 1 }} px={{ base: 2 }} align={'center'}>
-        <Flex
-          ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
-          />
-        </Flex>
 
-        <Stack display={{base: 'none',md: null, lg: 'flex'}} flex={{ base: 1, md: 0 }} justify={'flex-start'} direction={'row'} >
+        <Stack display={{ base: 'none', md: null, lg: 'flex' }} flex={{ base: 1, md: 0 }} justify={'flex-start'} direction={'column'} textAlign={'left'}>
           <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>about us</Button>
           <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>contact us</Button>
         </Stack>
-        <Flex flex={{ base: 1 }} justify={'center'}>
+
+        <Flex flex={{ base: 1 }} pl={{base: 0, sm: 100, lg: 0}} justify={'center'}>
           <Link href='/store/#/home'>
             <img height="100" width="150" alt='logo' src={logo} />
           </Link>
         </Flex>
 
         <Stack
-          display={{base: 'none',md: null, lg: 'flex'}}
+          display={{ base: 'none', md: null, lg: 'flex' }}
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
@@ -74,38 +65,39 @@ export default function WithSubnavigation() {
               <MenuItem>Logout</MenuItem>
             </MenuList>
           </Menu>
-          <Flex p={4} justifyContent="center" alignItems="center" >
-            <chakra.span pos="relative" display="inline-block">
-              <Icon
-                boxSize={6}
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-              </Icon>
-              <chakra.span
-                pos="absolute"
-                top="-1px"
-                right="-1px"
-                px={2}
-                py={1}
-                fontSize="xs"
-                fontWeight="bold"
-                lineHeight="none"
-                color="red.100"
-                transform="translate(50%,-50%)"
-                bg="red.600"
-                rounded="full"
-              >
-                99
-              </chakra.span>
-            </chakra.span>
-          </Flex>
         </Stack>
+        <Flex width={50} height={50} justifyContent={'center'} alignItems={'center'} >
+          <chakra.span pos="relative" display="inline-block">
+            <Icon
+              boxSize={6}
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </Icon>
+            <chakra.span
+              pos="absolute" top="-1px" right="-1px" p={1}
+              fontSize="xs" fontWeight="bold" lineHeight="none"
+              color="red.100" transform="translate(50%,-50%)" bg="red.600" rounded="full"
+            >
+              99
+            </chakra.span>
+          </chakra.span>
+        </Flex>
+        <Flex
+          display={{ base: 'flex', md: 'none' }}
+          ml={{ base: -2 }} height={50} width={50}
+          justifyContent={'center'} alignItems={'center'}
+        >
+          <IconButton
+            onClick={onToggle} variant={'ghost'} aria-label={'Toggle Navigation'}
+            icon = { isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />}
+          />
+        </Flex>
       </Flex>
       <Flex display={{ base: 'none', md: 'flex' }} alignItems={'center'} justifyContent={'center'}>
         <DesktopNav />

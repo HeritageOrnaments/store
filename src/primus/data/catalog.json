@@ -29,6 +29,7 @@
     },
     "necklace": {
         "name": "Necklace",
+        "description": "purchase our newly launched Necklace",
         "products": {
             "hon01": {
                 "name": "product 1",

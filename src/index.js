@@ -5,9 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
 import { createHashRouter, RouterProvider} from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import PLP from './components/PLP/PLP';
 import PDP from './components/PDP/PDP';
 
+AOS.init({
+  once: true
+});
+
+window.onhashchange = function() {
+  window.location.reload();
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createHashRouter([

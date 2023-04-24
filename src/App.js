@@ -12,16 +12,12 @@ function App() {
       <div className='hompage-banner'>
         <img alt='hompage-banner' width={'100%'} src='http://via.placeholder.com/1200x300' />
       </div>
-      <Box p={4} textAlign={'center'}>
-        <Heading mb={4}>Best Sellers</Heading>
-        <Text fontSize='xl'>Checkout with one of Our Best sellers</Text>
-      </Box>
       <Flex  justifyContent={'center'}>
         <SimpleGrid padding={'30px'} columns={[2, null, 4]} >
-          <ProductAddToCart />
-          <ProductAddToCart />
-          <ProductAddToCart />
-          <ProductAddToCart />
+          <ProductAddToCart product={{}}/>
+          <ProductAddToCart product={{}}/>
+          <ProductAddToCart product={{}}/>
+          <ProductAddToCart product={{}}/>
         </SimpleGrid>
       </Flex>
       <div className='hompage-banner-2'>

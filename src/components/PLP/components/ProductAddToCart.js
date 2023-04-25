@@ -6,8 +6,8 @@ import {
     Badge,
     useColorModeValue,
     Icon,
-    chakra,
-    Tooltip,
+    Button,
+    Text,
     Link
 } from '@chakra-ui/react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
@@ -52,7 +52,7 @@ function ProductAddToCart({ product }) {
         url: product.url
     };
     return (
-        <Flex 
+        <Flex
             p={4} w="full" alignItems="center" justifyContent="center"
             data-pid={product.id} data-aos="fade-up"
         >
@@ -62,6 +62,10 @@ function ProductAddToCart({ product }) {
                 width={{ base: '15rem', md: '15rem', lg: '300px' }}
                 borderWidth="1px"
                 shadow="sm"
+                display={'flex'}
+                flexDirection={'column'}
+                justifyContent={'center'}
+                justifyItems={'center'}
                 position="relative">
                 {data.isNew && (
                     <Circle
@@ -96,16 +100,7 @@ function ProductAddToCart({ product }) {
                             isTruncated>
                             {data.name}
                         </Box>
-                        <Tooltip
-                            label="Add to cart"
-                            bg="white"
-                            placement={'top'}
-                            color={'gray.800'}
-                        >
-                            <chakra.a href={'#'} display={{ base: 'none', sm: 'none', lg: 'flex' }}>
-                                <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                            </chakra.a>
-                        </Tooltip>
+
                     </Flex>
 
                     <Flex justifyContent="space-between" alignContent="center">
@@ -117,7 +112,14 @@ function ProductAddToCart({ product }) {
                             {data.price.toFixed(2)}
                         </Box>
                     </Flex>
+                <Box pt={4} w={'full'}>
+                <Button w={'full'}>
+                    <Text p={2}> Add to cart </Text>
+                    <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
+                </Button>
                 </Box>
+                </Box>
+
             </Box>
         </Flex>
     );

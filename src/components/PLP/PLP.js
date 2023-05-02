@@ -1,5 +1,5 @@
 import ProductAddToCart from './components/ProductAddToCart.js';
-import { SimpleGrid, Grid, Flex, Box, Heading, Text } from '@chakra-ui/react'
+import { Card, CardBody, SimpleGrid, Grid, Flex, Box, Heading, Text } from '@chakra-ui/react'
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
 import catalogMgr from '../../primus/managers/catalogMgr.js';
@@ -29,7 +29,7 @@ function PLP(params) {
         <div className="PLP" >
             <Header />
             <div className='plp-banner'>
-                <img width={'100%'} alt={'plp-banner'} src='http://via.placeholder.com/1200x300' />
+                <img width={'100%'} alt={'plp-banner'} src='http://via.placeholder.com/1200x400' />
             </div>
 
             <Box p={4} textAlign={'center'}>
@@ -38,8 +38,14 @@ function PLP(params) {
             </Box>
 
             <Flex justifyContent={'center'}>
-                <Grid w={[0, null, '20%']}></Grid>
-                <SimpleGrid width={'auto'} padding={'30px'} columns={[2, null, 4]} >
+                <Grid w={[0, null, '20%']} padding={{base: '10px', lg:'20px'}} display={{base:'none', md:'flex', lg:'flex'}}>
+                <Card>
+                    <CardBody>
+                        <Text></Text>
+                    </CardBody>
+                </Card>
+                </Grid>
+                <SimpleGrid width={'auto'} padding={{base: '10px', lg:'20px'}} columns={[2, null, 3]} >
                     <ProductTiles />
                 </SimpleGrid>
             </Flex>

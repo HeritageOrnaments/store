@@ -1,9 +1,10 @@
 {
     "bangles": {
         "name": "Bangles",
+        "description": "Shop our newly launched Bangles",
         "products": {
             "hob01": {
-                "name": "product 1 with images",
+                "name": "product 1",
                 "description": "lorem ipsum",
                 "price": 140,
                 "Images": [
@@ -24,12 +25,35 @@
             "hob04": {
                 "name": "product 4",
                 "description": "lorem ipsum"
+            },
+            "hob05": {
+                "name": "product 5",
+                "description": "lorem ipsum",
+                "price": 140,
+                "Images": [
+                    "http://via.placeholder.com/500x500",
+                    "http://via.placeholder.com/500x500"
+                ]
+            },
+            "hob06": {
+                "name": "product 6",
+                "description": "lorem ipsum",
+                "price": 142
+            },
+            "hob07": {
+                "name": "product 7",
+                "description": "lorem ipsum",
+                "price": 133
+            },
+            "hob08": {
+                "name": "product 8",
+                "description": "lorem ipsum"
             }
         }
     },
     "necklace": {
         "name": "Necklace",
-        "description": "purchase our newly launched Necklace",
+        "description": "Shop our newly launched Necklace",
         "products": {
             "hon01": {
                 "name": "product 1",
@@ -51,6 +75,7 @@
     },
     "bangles2": {
         "name": "Bangles 2",
+        "description": "Shop our newly launched Bangles",
         "products": {
             "hob01": {
                 "name": "product 1 with images",

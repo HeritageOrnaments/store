@@ -33,12 +33,12 @@ export default function WithSubnavigation() {
         bg={useColorModeValue('white', 'gray.800')} color={useColorModeValue('gray.600', 'white')}
         minH={'50px'} py={{ base: 1 }} px={{ base: 2 }} align={'center'}>
 
-        <Stack display={{ base: 'none', md: null, lg: 'flex' }} flex={{ base: 1, md: 0 }} justify={'flex-start'} direction={'column'} textAlign={'left'}>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>about us</Button>
-          <Button as={'a'} fontSize={'sm'} fontWeight={400} variant={'link'} href={'#'}>contact us</Button>
+        <Stack display={{ base: 'none', md: null, lg: 'flex' }} justify={'flex-start'} direction={'row'} textAlign={'left'}>
+          <Button as={'a'} fontSize={'sm'} textAlign={'left'} fontWeight={400} variant={'link'} href={'#'}>about-us</Button>
+          <Button as={'a'} fontSize={'sm'} textAlign={'left'} fontWeight={400} variant={'link'} href={'#'}>contact-us</Button>
         </Stack>
 
-        <Flex flex={{ base: 1 }} pl={{base: 0, sm: 100, lg: 0}} justify={'center'}>
+        <Flex flex={{ base: 1 }} pl={{base: 0, sm: 100, lg: 0}} justify={{base:'start', md:'center',lg:'center'}}>
           <Link href='/store/#/home'>
             <img height="100" width="150" alt='logo' src={logo} />
           </Link>
@@ -52,7 +52,7 @@ export default function WithSubnavigation() {
           spacing={6}>
           <Menu >
             <MenuButton as={Button} variant={'link'} cursor={'pointer'} minW={0}>
-              <Avatar size={'sm'} src={'http://via.placeholder.com/50x50'} />
+              My Account
             </MenuButton>
             <MenuList alignItems={'center'}>
               <br />

@@ -1,7 +1,7 @@
 var catalog = require('../data/catalog.json');
 
 var productMgr = {
-    getProduct: (pid, catagorie) => {
+    getProduct: (pid) => {
         var catagories = Object.keys(
             catalog
         );

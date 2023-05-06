@@ -22,7 +22,6 @@ export function useGetProducts(pid) {
         }
       }
     `);
-
         return products;
     });
 }

@@ -9,7 +9,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import PLP from './components/PLP/PLP';
 import PDP from './components/PDP/PDP';
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 AOS.init({
   once: true
 });
@@ -41,7 +43,9 @@ const router = createHashRouter([
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ChakraProvider>
   </React.StrictMode>
 );

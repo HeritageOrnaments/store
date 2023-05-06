@@ -3,7 +3,7 @@
         "name": "Bangles",
         "description": "Shop our newly launched Bangles",
         "products": {
-            "hob01": {
+            "HO01": {
                 "name": "product 1",
                 "description": "lorem ipsum",
                 "price": 140,
@@ -12,21 +12,21 @@
                     "http://via.placeholder.com/500x500"
                 ]
             },
-            "hob02": {
+            "HO02": {
                 "name": "product 2",
                 "description": "lorem ipsum",
                 "price": 142
             },
-            "hob03": {
+            "HO03": {
                 "name": "product 3",
                 "description": "lorem ipsum",
                 "price": 133
             },
-            "hob04": {
+            "HO04": {
                 "name": "product 4",
                 "description": "lorem ipsum"
             },
-            "hob05": {
+            "HO05": {
                 "name": "product 5",
                 "description": "lorem ipsum",
                 "price": 140,
@@ -35,17 +35,17 @@
                     "http://via.placeholder.com/500x500"
                 ]
             },
-            "hob06": {
+            "HO06": {
                 "name": "product 6",
                 "description": "lorem ipsum",
                 "price": 142
             },
-            "hob07": {
+            "HO07": {
                 "name": "product 7",
                 "description": "lorem ipsum",
                 "price": 133
             },
-            "hob08": {
+            "HO08": {
                 "name": "product 8",
                 "description": "lorem ipsum"
             }
@@ -55,48 +55,19 @@
         "name": "Necklace",
         "description": "Shop our newly launched Necklace",
         "products": {
-            "hon01": {
+            "HO09": {
                 "name": "product 1",
                 "description": "lorem ipsum"
             },
-            "hon02": {
+            "HO10": {
                 "name": "product 2",
                 "description": "lorem ipsum"
             },
-            "hon03": {
+            "HO11": {
                 "name": "product 3",
                 "description": "lorem ipsum"
             },
-            "hon04": {
-                "name": "product 4",
-                "description": "lorem ipsum"
-            }
-        }
-    },
-    "bangles2": {
-        "name": "Bangles 2",
-        "description": "Shop our newly launched Bangles",
-        "products": {
-            "hob01": {
-                "name": "product 1 with images",
-                "description": "lorem ipsum",
-                "price": 140,
-                "Images": [
-                    "http://via.placeholder.com/500x500",
-                    "http://via.placeholder.com/500x500"
-                ]
-            },
-            "hob02": {
-                "name": "product 2",
-                "description": "lorem ipsum",
-                "price": 142
-            },
-            "hob03": {
-                "name": "product 3",
-                "description": "lorem ipsum",
-                "price": 133
-            },
-            "hob04": {
+            "HO12": {
                 "name": "product 4",
                 "description": "lorem ipsum"
             }

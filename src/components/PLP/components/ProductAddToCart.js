@@ -44,7 +44,7 @@ function Rating({ rating, numReviews }) {
 function ProductAddToCart({ product }) {
     const data = {
         isNew: true,
-        imageURL: product.Images ? product.Images[0] : null || 'http://via.placeholder.com/500x500',
+        imageURL: product.image || 'http://via.placeholder.com/500x500',
         name: product.name || 'not-configured',
         price: product.price || 0,
         rating: product.rating || 1,

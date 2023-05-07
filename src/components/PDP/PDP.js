@@ -15,13 +15,13 @@ import {
     Spinner
 } from '@chakra-ui/react';
 import { MdLocalShipping } from 'react-icons/md';
-import { useGetProducts } from '../../primus/managers/productMgrHygraph.js';
+import productMgrHygraph from '../../primus/managers/productMgrHygraph.js';
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
 export default function Simple() {
     const params = new URLSearchParams(window.location.hash.split('?')[1]);
     var pid = params.get('pid');
-    const { data, status } = useGetProducts(pid);
+    const { data, status } = new productMgrHygraph().useGetProducts(pid);
 
     return (
         <div className='pdp'>

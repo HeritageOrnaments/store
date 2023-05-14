@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import PLP from './components/PLP/PLP';
 import PDP from './components/PDP/PDP';
-import Cart from './components/cart/Cart';
+import Cart from './components/cart/Cart.js';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from 'react-redux';
 import { store } from './redux/store';

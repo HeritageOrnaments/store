@@ -6,6 +6,7 @@ import Header from './components/common/Header.js';
 import Footer from './components/common/Footer.js';
 import { useGetPage } from './primus/managers/pageMgrHygraph';
 import productMgrHygraph from './primus/managers/productMgrHygraph';
+import CategoryTile from './components/common/CategoryTile'
 function App() {
   const { data, status } = useGetPage('homepage');
 
@@ -77,11 +78,38 @@ function App() {
           <div className='hompage-banner'>
             <img alt='hompage-banner' width={'100%'} src={data.bannerImages[0]?.url || 'http://via.placeholder.com/1200x400'} />
           </div>
+
+          {/* Product Category */}
+          <Box p={4} textAlign={'center'}>
+            <Heading mb={2}> PRODUCT CATEGORY</Heading>
+            <Text fontSize='xl'> Shop one of our top category's</Text>
+          </Box>
+          <Flex >
+            <SimpleGrid width={'full'} padding={'30px'} justifyItems={'center'} columns={[1, null, 3]}>
+            <CategoryTile category={{
+            id: 'bangles',
+            name: 'Bangles',
+            link:'/store/#/bangles',
+          }}/>
+          <CategoryTile category={{
+            id: 'necklace',
+            name: 'Necklaces',
+            link:'/store/#/necklace',
+          }}/>
+          <CategoryTile category={{
+            id: 'rings',
+            name: 'Rings',
+            link:'/store/#/rings',
+          }}/>
+            </SimpleGrid>
+          </Flex>
+
           {/* New Arrival */}
           <Box p={4} textAlign={'center'}>
             <Heading mb={2}>{data?.jsonData.section['newArrival'].title}</Heading>
             <Text fontSize='xl'>{data?.jsonData.section['newArrival'].description}</Text>
-          </Box><Flex justifyContent={'center'}>
+          </Box>
+          <Flex justifyContent={'center'}>
             <SimpleGrid padding={'30px'} columns={[2, null, 4]}>
               <ProductTilesNewArrival />
             </SimpleGrid>

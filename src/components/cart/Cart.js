@@ -14,13 +14,12 @@ import Footer from '../common/Footer.js';
 const cartData = [
   {
     id: '1',
-    price: 39.99,
-    currency: 'GBP',
-    name: 'Ferragamo bag',
-    description: 'Tan, 40mm',
-    quantity: 3,
-    imageUrl:
-      'https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80',
+    price: 550,
+    currency: 'INR',
+    name: 'White necklace',
+    description: 'White necklace',
+    quantity: 1,
+    imageUrl: 'https://media.graphassets.com/tv8bAGfaTT2KdPaAxu27',
   }
 ];
 export const Cart = () => (

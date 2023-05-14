@@ -46,7 +46,6 @@ export default function WithSubnavigation() {
 
         <Stack display={{ base: 'none', md: null, lg: 'flex' }} justify={'flex-start'} direction={'row'} textAlign={'left'}>
           <Button as={'a'} fontSize={'sm'} textAlign={'left'} fontWeight={400} variant={'link'} href={'#'}>about-us</Button>
-          <Button as={'a'} fontSize={'sm'} textAlign={'left'} fontWeight={400} variant={'link'} href={'#'}>contact-us</Button>
         </Stack>
 
         <Flex flex={{ base: 1 }} pl={{base: 0, sm: 100, lg: 0}} justify={{base:'start', md:'center',lg:'center'}}>

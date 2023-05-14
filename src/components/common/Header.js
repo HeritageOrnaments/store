@@ -6,6 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon, } from '@chakra-ui/icons';
 import logo from '../../heritageornaments.svg';
+import { useSelector } from 'react-redux';
 
 var catalogMgr = require('../../primus/managers/catalogMgr');
 var NAV_ITEMS = [];
@@ -19,6 +20,16 @@ catalogMgr.getCatagories().forEach((cid) => {
 
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+
+  const cart = useSelector((state) => state.cart)
+
+  const getTotalQuantity = () => {
+    let total = 0
+    cart.forEach(item => {
+      total += item.quantity
+    })
+    return total
+  }
 
   return (
     <Box
@@ -51,7 +62,9 @@ export default function WithSubnavigation() {
           direction={'row'}
           spacing={6}>
           <Menu >
-            <MenuButton as={Button} variant={'link'} cursor={'pointer'} minW={0}>
+            <MenuButton as={Button} variant={'link'} cursor={'pointer'} minW={0}
+            display={'none'}
+            >
               My Account
             </MenuButton>
             <MenuList alignItems={'center'}>
@@ -67,6 +80,7 @@ export default function WithSubnavigation() {
           </Menu>
         </Stack>
         <Flex width={50} height={50} justifyContent={'center'} alignItems={'center'} >
+          <Link href='/store/#/cart'>
           <chakra.span pos="relative" display="inline-block">
             <Icon
               boxSize={6}
@@ -84,9 +98,10 @@ export default function WithSubnavigation() {
               fontSize="xs" fontWeight="bold" lineHeight="none"
               color="red.100" transform="translate(50%,-50%)" bg="red.600" rounded="full"
             >
-              99
+              <p>{getTotalQuantity() || 0}</p>
             </chakra.span>
           </chakra.span>
+          </Link>
         </Flex>
         <Flex
           display={{ base: 'flex', md: 'none' }}

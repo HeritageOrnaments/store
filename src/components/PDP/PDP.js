@@ -18,11 +18,36 @@ import { MdLocalShipping } from 'react-icons/md';
 import productMgrHygraph from '../../primus/managers/productMgrHygraph.js';
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartSlice.js';
+import { useToast } from '@chakra-ui/react'
+
 export default function Simple() {
     const params = new URLSearchParams(window.location.hash.split('?')[1]);
     var pid = params.get('pid');
     const { data, status } = new productMgrHygraph().useGetProducts(pid);
 
+    const dispatch = useDispatch();
+    const toast = useToast();
+
+    const triggerAddToCart = () => {
+        toast({
+            title: `Added ${data.name} to your cart.`,
+            description: "add more to get a discount.",
+            status: 'success',
+            position: 'top-right',
+            duration: 2000,
+            variant:  'top-accent',
+            isClosable: true,
+        });
+
+        dispatch(addToCart({
+            id: data.id,
+            title: data.name,
+            image: data.imageURL,
+            price: data.price
+        }))
+    };
     return (
         <div className='pdp'>
             <Header />
@@ -175,7 +200,9 @@ export default function Simple() {
                                 _hover={{
                                     transform: 'translateY(2px)',
                                     boxShadow: 'lg',
-                                }}>
+                                }}
+                                onClick={triggerAddToCart}
+                                >
                                 Add to cart
                             </Button>
 

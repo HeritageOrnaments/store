@@ -12,6 +12,9 @@ import {
 } from '@chakra-ui/react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../redux/cartSlice';
+import { useToast } from '@chakra-ui/react'
 
 function Rating({ rating, numReviews }) {
     return (
@@ -42,14 +45,37 @@ function Rating({ rating, numReviews }) {
 }
 
 function ProductAddToCart({ product }) {
+    const toast = useToast();
+    const dispatch = useDispatch();
+
     const data = {
         isNew: true,
+        id: product.id,
         imageURL: product.image || 'http://via.placeholder.com/500x500',
         name: product.name || 'not-configured',
         price: product.price || 0,
         rating: product.rating || 1,
         numReviews: product.numReviews || 0,
         url: product.url
+    };
+
+    const triggerAddToCart = () => {
+        toast({
+            title: `Added ${data.name} to your cart.`,
+            description: "add more to get a discount.",
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+            position: 'top-right',
+            variant:  'top-accent'
+        });
+
+        dispatch(addToCart({
+            id: data.id,
+            title: data.name,
+            image: data.imageURL,
+            price: data.price
+        }))
     };
     return (
         <Flex
@@ -58,7 +84,7 @@ function ProductAddToCart({ product }) {
         >
             <Box
                 bg={useColorModeValue('white', 'gray.800')}
-                maxW ={{ base: '15rem', md: '15rem', lg: '300px' }}
+                maxW={{ base: '15rem', md: '15rem', lg: '300px' }}
                 width={{ base: '15rem', md: '15rem', lg: '300px' }}
                 borderWidth="1px"
                 shadow="sm"
@@ -112,12 +138,14 @@ function ProductAddToCart({ product }) {
                             {data.price.toFixed(2)}
                         </Box>
                     </Flex>
-                <Box pt={4} w={'full'}>
-                <Button p={2} w={'full'} justifyContent={'space-around'}>
-                    <Text > Add to cart </Text>
-                    <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
-                </Button>
-                </Box>
+                    <Box pt={4} w={'full'}>
+                        <Button p={2} w={'full'} justifyContent={'space-around'}
+                            onClick={triggerAddToCart}
+                        >
+                            <Text > Add to cart </Text>
+                            <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
+                        </Button>
+                    </Box>
                 </Box>
 
             </Box>

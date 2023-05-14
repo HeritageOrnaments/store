@@ -64,8 +64,6 @@ function App() {
     return ProductTiles;
   }
 
-  
-
   return (
     <div className="homepage">
       <Header />
@@ -75,12 +73,12 @@ function App() {
         </Flex>
       ) : (
         <>
-        {/* homepage banner 2 */}
-        <div className='hompage-banner'>
-          <img alt='hompage-banner' width={'100%'} src={data.bannerImages[0]?.url || 'http://via.placeholder.com/1200x400'} />
-        </div>
-        {/* New Arrival */}
-        <Box p={4} textAlign={'center'}>
+          {/* homepage banner 2 */}
+          <div className='hompage-banner'>
+            <img alt='hompage-banner' width={'100%'} src={data.bannerImages[0]?.url || 'http://via.placeholder.com/1200x400'} />
+          </div>
+          {/* New Arrival */}
+          <Box p={4} textAlign={'center'}>
             <Heading mb={2}>{data?.jsonData.section['newArrival'].title}</Heading>
             <Text fontSize='xl'>{data?.jsonData.section['newArrival'].description}</Text>
           </Box><Flex justifyContent={'center'}>
@@ -101,7 +99,7 @@ function App() {
               <ProductTilesBestSellers />
             </SimpleGrid>
           </Flex>
-          </>
+        </>
       )};
       <Footer />
     </div>

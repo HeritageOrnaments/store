@@ -6,9 +6,10 @@ import {
   Stack,
   Text,
   useColorModeValue as mode,
-} from '@chakra-ui/react'
-import { FaArrowRight } from 'react-icons/fa'
-import { formatPrice } from './PriceTag'
+} from '@chakra-ui/react';
+import { FaArrowRight } from 'react-icons/fa';
+import { formatPrice } from './PriceTag';
+import { useSelector } from 'react-redux';
 const OrderSummaryItem = (props) => {
   const { label, value, children } = props
   return (
@@ -22,29 +23,29 @@ const OrderSummaryItem = (props) => {
 }
 
 export const CartOrderSummary = () => {
+  const cart = useSelector((state) => state.cart);
+  const getTotalPrice = () => {
+      let totalPrice = 0
+      cart.forEach(item => {
+        totalPrice += item.price * item.quantity
+      })
+      return totalPrice;
+  };
+
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
 
       <Stack spacing="6">
-        <OrderSummaryItem label="Subtotal" value={formatPrice(597)} />
-        <OrderSummaryItem label="Shipping + Tax">
-          <Link href="#" textDecor="underline">
-            Calculate shipping
-          </Link>
-        </OrderSummaryItem>
+        <OrderSummaryItem label="Subtotal" value={formatPrice(getTotalPrice())} />
         <OrderSummaryItem label="Coupon Code">
           <Link href="#" textDecor="underline">
             Add coupon code
           </Link>
         </OrderSummaryItem>
         <Flex justify="space-between">
-          <Text fontSize="lg" fontWeight="semibold">
-            Total
-          </Text>
-          <Text fontSize="xl" fontWeight="extrabold">
-            {formatPrice(597)}
-          </Text>
+          <Text fontSize="lg" fontWeight="semibold"> Total </Text>
+          <Text fontSize="xl" fontWeight="extrabold"> {formatPrice(getTotalPrice())} </Text>
         </Flex>
       </Stack>
       <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>

@@ -1,5 +1,5 @@
 import ProductAddToCart from './components/ProductAddToCart.js';
-import { Card, CardBody, SimpleGrid, Grid, Flex, Box, Heading, Text, Spinner } from '@chakra-ui/react'
+import { SimpleGrid, Flex, Box, Heading, Text, Spinner } from '@chakra-ui/react'
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
 import { useGetCategory } from '../../primus/managers/catalogMgrHygraph.js';
@@ -29,7 +29,6 @@ export default function PLP() {
     return (
         <div className="PLP" >
             <Header />
-
             {status === "loading" ? (
                 <Flex width={'full'} height={'50vh'} justifyContent={'center'} alignItems={'center'}>
                     <Spinner thickness='4px' speed='0.65s' emptyColor='gray.200' color='blue.500' size='xl' />
@@ -41,19 +40,11 @@ export default function PLP() {
                         <Heading>{data.name}</Heading>
                         <Text fontSize='xl'>{data.description}</Text>
                     </Box><Flex justifyContent={'center'}>
-                        <Grid w={[0, null, '20%']} padding={{ base: '10px', lg: '20px' }} display={{ base: 'none', md: 'flex', lg: 'flex' }}>
-                            <Card>
-                                <CardBody>
-                                    <Text></Text>
-                                </CardBody>
-                            </Card>
-                        </Grid>
                         <SimpleGrid width={'auto'} padding={{ base: '10px', lg: '20px' }} columns={[2, null, 3]}>
                             <ProductTiles />
                         </SimpleGrid>
                     </Flex></>
             )}
-
             <Footer />
         </div>
     );

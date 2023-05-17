@@ -110,7 +110,7 @@ function ProductAddToCart({ product }) {
                     />
                 </Link>
 
-                <Box p={{ base: '2', sm: '2', md: '4', lg: '6' }}>
+                <Box p={{ base: '1', sm: '1', md: '2', lg: '4' }}>
                     <Box display="flex" alignItems="baseline">
                         {data.isNew && (
                             <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
@@ -138,16 +138,13 @@ function ProductAddToCart({ product }) {
                             {data.price.toFixed(2)}
                         </Box>
                     </Flex>
-                    <Box pt={4} w={'full'}>
-                        <Button p={2} w={'full'} justifyContent={'space-around'}
-                            onClick={triggerAddToCart}
-                        >
+                    <Box pt={2} w={'full'}>
+                        <Button py={6} w={'full'} rounded={5} onClick={triggerAddToCart} alignContent={'center'} justifyContent={'center'}>
+                            <Icon as={FiShoppingCart} h={5} w={5} alignSelf={'center'} mr={2}/>
                             <Text > Add to cart </Text>
-                            <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
                         </Button>
                     </Box>
                 </Box>
-
             </Box>
         </Flex>
     );

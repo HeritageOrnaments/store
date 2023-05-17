@@ -1,13 +1,12 @@
-import { CloseButton, Flex, Link,Input, HStack, Button } from '@chakra-ui/react'
+import { CloseButton, Flex,Input, HStack, Button, Stack, Image,Box,Text } from '@chakra-ui/react'
 import { PriceTag } from './PriceTag.js'
-import { CartProductMeta } from './CartProductMeta.js'
 const QuantitySelect = ({value, incrementQuantity, decrementQuantity}) => {
   console.log(value)
   return (
     <HStack maxW='150px'>
-      <Button onClick={decrementQuantity}>-</Button>
-      <Input textAlign={'center'} readOnly={true} value={value}/>
-      <Button onClick={incrementQuantity}>+</Button>
+      <Button onClick={decrementQuantity} rounded={0} p={0} m={0} w={50}>-</Button>
+      <Input textAlign={'center'} rounded={0} p={0} m={0} readOnly={true} value={value} w={100}/>
+      <Button onClick={incrementQuantity} rounded={0} p={0} m={0} w={50}>+</Button>
     </HStack>
   )
 }
@@ -15,27 +14,33 @@ const QuantitySelect = ({value, incrementQuantity, decrementQuantity}) => {
 export const CartItem = (props) => {
   console.table(props)
   const {
-    isGiftWrapping, name, description,
+    name,
     quantity, imageUrl, currency, price,
     incrementQuantity, decrementQuantity, onClickDelete,
   } = props
   return (
-    <Flex direction={{ base: 'column', md: 'row', }} justify="space-between" align="center" >
-      <CartProductMeta name={name} description={description} image={imageUrl} isGiftWrapping={isGiftWrapping} />
 
-      {/* Desktop */}
-      <Flex width="full" justify="space-between" display={{ base: 'none', md: 'flex', }} >
-        <QuantitySelect value={quantity} incrementQuantity = {incrementQuantity} decrementQuantity = {decrementQuantity} />
-        <PriceTag price={price} currency={currency} />
-        <CloseButton aria-label={`Delete ${name} from cart`} onClick={onClickDelete} />
-      </Flex>
+    <Flex direction={{ base: 'column', md: 'row', }} justify="space-between" align="center"  borderWidth="1px" padding={'8px'} position={'relative'}>
 
-      {/* Mobile */}
-      <Flex mt="4" align="center" width="full" justify="space-between" display={{ base: 'flex', md: 'none', }} >
-        <Link fontSize="sm" textDecor="underline"> Delete </Link>
+<Stack direction="row" spacing="5" width="full">
+      <Image
+        width="120px"
+        height="120px"
+        fit="cover"
+        src={imageUrl}
+        alt={name}
+        draggable="false"
+        loading="lazy"
+      />
+      <Box pt="4" w={'full'}>
+        <HStack spacing="0.5" w={'80%'} justifyContent={'space-between'} paddingBottom={8}>
+          <Text fontWeight="medium">{name}</Text>
+          <PriceTag price={price} currency={currency} />
+        </HStack>
         <QuantitySelect value={quantity} incrementQuantity = {incrementQuantity} decrementQuantity = {decrementQuantity} />
-        <PriceTag price={price} currency={currency} />
-      </Flex>
+      </Box>
+    </Stack>
+    <CloseButton aria-label={`Delete ${name} from cart`} onClick={onClickDelete} position={'absolute'} top={0} right={0}/>
     </Flex>
   )
 }

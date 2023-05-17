@@ -22,13 +22,13 @@ function Cart() {
       <Box
         maxW={{ base: '3xl', lg: '7xl', }} mx="auto" px={{ base: '4', md: '8', lg: '12', }}
         py={{ base: '6', md: '8', lg: '12', }} >
+        <Heading mb={4} fontSize="2xl" fontWeight="extrabold"> Shopping Cart ({getTotalQuantity() || 0} items) </Heading>
         <Stack direction={{ base: 'column', lg: 'row', }} align={{ lg: 'flex-start', }} spacing={{ base: '8', md: '16', }} >
           <Stack spacing={{ base: '8', md: '10', }} flex="2" >
-            <Heading fontSize="2xl" fontWeight="extrabold"> Shopping Cart ({getTotalQuantity() || 0} items) </Heading>
             <Stack spacing="6">
               {cart?.map((item) => (
                 <CartItem
-                  key={item.id} id={item.id} imageUrl={item.image}
+                  key={item.id} id={item.id} name={item.title} imageUrl={item.image}
                   title={item.title} price={item.price} quantity={item.quantity}
                   onClickDelete={()=>{dispatch(removeItem(item.id))}}
                   incrementQuantity={()=>{dispatch(incrementQuantity(item.id))}}

@@ -10,6 +10,8 @@ import 'aos/dist/aos.css';
 import PLP from './components/PLP/PLP';
 import PDP from './components/PDP/PDP';
 import Cart from './components/cart/Cart.js';
+import Checkout from './components/checkout/checkout';
+
 import { QueryClient, QueryClientProvider } from "react-query";
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
@@ -44,6 +46,10 @@ const router = createHashRouter([
   {
     path:"/cart",
     element: <Cart/>
+  },
+  {
+    path:"/checkout",
+    element: <Checkout/>
   }
 ]);
 

@@ -33,7 +33,7 @@ export const CartOrderSummary = () => {
   };
 
   return (
-    <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
+    <Stack spacing="8" borderWidth="1px" padding="8" width="full" rounded={0}>
       <Heading size="md">Order Summary</Heading>
 
       <Stack spacing="6">
@@ -48,7 +48,7 @@ export const CartOrderSummary = () => {
           <Text fontSize="xl" fontWeight="extrabold"> {formatPrice(getTotalPrice())} </Text>
         </Flex>
       </Stack>
-      <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+      <Button size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
         Checkout
       </Button>
     </Stack>

@@ -1,24 +1,15 @@
-import { Stack, Card, Image, Divider, Text, Heading, Button, CardBody, CardFooter } from '@chakra-ui/react'
+import { Stack, Card, Image, Heading, CardFooter, Link } from '@chakra-ui/react'
     export const CategoryTile = ({category}) => (
-    <Card maxW='sm' rounded={0}>
-    <CardBody rounded={0}>
-        <Image
-            src='https://media.graphassets.com/tv8bAGfaTT2KdPaAxu27'
-            alt='show now'
-        />
-        <Stack mt='6' spacing='3'>
-            <Heading size='md'>{category.name}</Heading>
-            <Text> {category.description}</Text>
+    <Link href={`/store/#/category?cid=${category.id}`} data-aos="fade-up" >
+    <Card maxW='sm' rounded={0} marginBottom={8} position={'relative'}>
+        <Image src='https://media.graphassets.com/tv8bAGfaTT2KdPaAxu27' alt='show now' />
+    <CardFooter position={'absolute'} w={'full'} bottom={-8} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+        <Stack spacing='3' backgroundColor={'black'} >
+            <Heading  textTransform={'uppercase'} size='md' p={4} color={'white'}>{category.name}</Heading>
         </Stack>
-    </CardBody>
-    <Divider />
-    <CardFooter>
-        <Button
-            p={2} w={'full'} variant='solid'
-            onClick={()=>{window.location.href = '/store/#/category?cid=' + category.id}}
-        >Shop Now</Button>
     </CardFooter>
 </Card>
+</Link>
 )
 export default CategoryTile;
 

@@ -1,4 +1,4 @@
-import { Stack, HStack } from '@chakra-ui/react'
+import { Stack } from '@chakra-ui/react'
 import Header from '../common/Header.js';
 import Footer from '../common/Footer.js';
 import AddressForm from '../common/forms/AddressForm.js';
@@ -8,14 +8,14 @@ export default function Checkout() {
     return (
         <div className="PLP" >
             <Header />
-            <HStack alignItems={'start'} m={10}>
-                <Stack width='60%'>
+            <Stack alignItems={'start'} m={10} direction={{ base: 'column',sm:'column', lg: 'row', }}>
+                <Stack width={{ base: '100%', sm:'100%', lg: '60%', }}>
                     <AddressForm />
                 </Stack>
-                <Stack width='40%'>
+                <Stack width={{ base: '100%', sm:'100%', lg: '40%', }}>
                     <CartOrderSummary />
                 </Stack>
-            </HStack>
+            </Stack>
             <Footer />
         </div>
     );

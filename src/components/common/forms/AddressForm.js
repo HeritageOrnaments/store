@@ -19,6 +19,7 @@ import {
 import { Radio, RadioGroup } from '@chakra-ui/react'
 
 import { useToast } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Form1 = () => {
     return (
@@ -166,8 +167,8 @@ const Form2 = () => {
             <RadioGroup >
                 <Stack direction='column'>
                     <Radio value='1'>WhatsApp</Radio>
-                    <Radio isDisabled value='2'>UPI(comming soon)</Radio>
-                    <Radio isDisabled value='3'>RazorPay(comming soon)</Radio>
+                    <Radio isDisabled value='2'>UPI(not available at this moment)</Radio>
+                    <Radio isDisabled value='3'>RazorPay(not available at this moment)</Radio>
                 </Stack>
             </RadioGroup>
         </>
@@ -255,6 +256,19 @@ export default function multistep() {
                         ) : null}
                     </Flex>
                 </ButtonGroup>
+
+                <Link
+                    aria-label="Chat on WhatsApp"
+                    href="https://wa.me/1XXXXXXXXXX"
+                >
+                        <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.svg" />
+                </Link>
+                            to embed PNG image
+                <Link aria-label="Chat on WhatsApp"
+                    href="https://wa.me/1XXXXXXXXXX"
+                >
+                    <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.png" />
+                </Link>
             </Box>
         </>
     );

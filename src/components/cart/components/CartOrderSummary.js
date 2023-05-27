@@ -48,7 +48,11 @@ export const CartOrderSummary = () => {
           <Text fontSize="xl" fontWeight="extrabold"> {formatPrice(getTotalPrice())} </Text>
         </Flex>
       </Stack>
-      <Button size="lg" fontSize="md" rightIcon={<FaArrowRight />}>
+      <Button size="lg" fontSize="md" rightIcon={<FaArrowRight />}
+        onClick={()=>{
+          window.location.href='/store/#/checkout'
+        }}
+      >
         Checkout
       </Button>
     </Stack>

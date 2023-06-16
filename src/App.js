@@ -14,7 +14,6 @@ function App() {
     var ProductTiles = [];
     var productIds = data?.jsonData.section['newArrival']?.productIds;
     var productMgrHygraphProviderNewArrival = new productMgrHygraph();
-    console.log(productMgrHygraphProviderNewArrival);
     var productPromise = productMgrHygraphProviderNewArrival.useGetProducts(productIds);
 
     if (productPromise.isLoading) {

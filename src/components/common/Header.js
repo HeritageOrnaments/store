@@ -21,13 +21,13 @@ catalogMgr.getCatagories().forEach((cid) => {
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
-  const cart = useSelector((state) => state.cart)
-
+  const cart = useSelector((state) => state.cart.cart)
   const getTotalQuantity = () => {
-    let total = 0
+    let total = 0;
+    if(cart){
     cart.forEach(item => {
       total += item.quantity
-    })
+    })}
     return total
   }
 

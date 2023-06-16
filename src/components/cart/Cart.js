@@ -7,13 +7,15 @@ import Footer from '../common/Footer.js';
 import { useDispatch } from 'react-redux';
 import { incrementQuantity, decrementQuantity, removeItem} from '../../redux/cartSlice.js';
 function Cart() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const getTotalQuantity = () => {
-    let total = 0
-    cart.forEach(item => {
-      total += item.quantity
-    })
+    let total = 0;
+    if(cart){
+      cart?.forEach(item => {
+        total += item.quantity
+      })
+    }
     return total
   };
   return (

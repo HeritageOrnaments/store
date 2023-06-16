@@ -23,12 +23,13 @@ const OrderSummaryItem = (props) => {
 }
 
 export const CartOrderSummary = () => {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.cart);
   const getTotalPrice = () => {
-      let totalPrice = 0
-      cart.forEach(item => {
+      let totalPrice = 0;
+      if(cart){
+      cart?.forEach(item => {
         totalPrice += item.price * item.quantity
-      })
+      })}
       return totalPrice;
   };
 

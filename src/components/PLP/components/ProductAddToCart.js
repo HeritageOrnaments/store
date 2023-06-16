@@ -47,7 +47,6 @@ function Rating({ rating, numReviews }) {
 function ProductAddToCart({ product }) {
     const toast = useToast();
     const dispatch = useDispatch();
-
     const data = {
         isNew: true,
         id: product.id,

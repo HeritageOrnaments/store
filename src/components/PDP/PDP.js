@@ -32,7 +32,7 @@ export default function Simple() {
 
     const triggerAddToCart = () => {
         toast({
-            title: `Added ${data.name} to your cart.`,
+            title: `Added ${data[0].name} to your cart.`,
             description: "add more to get a discount.",
             status: 'success',
             position: 'top-right',
@@ -40,12 +40,11 @@ export default function Simple() {
             variant:  'top-accent',
             isClosable: true,
         });
-
         dispatch(addToCart({
-            id: data.id,
-            title: data.name,
-            image: data.imageURL,
-            price: data.price
+            id: data[0].id,
+            title: data[0].name,
+            image: data[0].images[0].url,
+            price: data[0].price
         }))
     };
     return (

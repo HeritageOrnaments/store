@@ -1,7 +1,6 @@
 import { CloseButton, Flex,Input, HStack, Button, Stack, Image,Box,Text } from '@chakra-ui/react'
 import { PriceTag } from './PriceTag.js'
 const QuantitySelect = ({value, incrementQuantity, decrementQuantity}) => {
-  console.log(value)
   return (
     <HStack maxW='150px'>
       <Button onClick={decrementQuantity} rounded={0} p={0} m={0} w={50}>-</Button>
@@ -12,7 +11,6 @@ const QuantitySelect = ({value, incrementQuantity, decrementQuantity}) => {
 }
 
 export const CartItem = (props) => {
-  console.table(props)
   const {
     name,
     quantity, imageUrl, currency, price,
